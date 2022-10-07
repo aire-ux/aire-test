@@ -1,0 +1,50 @@
+dependencies {
+
+    [
+            'com.vaadin:vaadin',
+            'com.vaadin:flow-server',
+            'com.vaadin:flow-html-components',
+            'com.github.mvysny.kaributesting:karibu-testing-v10'
+    ].each {
+        api(it) {
+            [
+                    "com.vaadin.webjar",
+                    "org.webjars.bowergithub.insites",
+                    "org.webjars.bowergithub.polymer",
+                    "org.webjars.bowergithub.polymerelements",
+                    "org.webjars.bowergithub.vaadin",
+                    "org.webjars.bowergithub.webcomponents"
+            ].each { dep ->
+                exclude(group: dep)
+            }
+        }
+    }
+
+
+    api 'org.mockito:mockito-core'
+    api 'io.sunshower.arcus:css-selectors'
+
+
+    api project(':aire-mock:aire-mockito')
+    api project(':aire-mock:aire-mock-core')
+
+
+    api 'org.junit-pioneer:junit-pioneer'
+    api 'org.junit.jupiter:junit-jupiter-params'
+
+    api 'org.junit.platform:junit-platform-launcher'
+    api 'org.junit.platform:junit-platform-engine'
+
+    implementation 'io.sunshower.arcus:arcus-lang'
+    implementation 'io.sunshower.arcus:arcus-lambda'
+    implementation 'io.sunshower.arcus:arcus-reflect'
+
+    [
+            'api',
+            'engine'
+
+    ].each { dep ->
+        testImplementation "org.junit.jupiter:junit-jupiter-$dep"
+        testImplementation "org.junit.platform:junit-platform-suite-$dep"
+    }
+}

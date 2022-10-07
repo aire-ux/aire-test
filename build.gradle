@@ -1,0 +1,241 @@
+plugins {
+    id 'java'
+    id 'pmd'
+    id 'maven-publish'
+    id 'io.freefair.lombok'
+    id 'com.github.spotbugs'
+    id 'com.diffplug.spotless'
+    id 'io.spring.dependency-management'
+}
+
+apply from: "$rootDir/tasks/revisions.gradle"
+
+allprojects {
+    apply plugin: 'signing'
+    apply plugin: 'maven-publish'
+
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+
+
+    /**
+     * maven publishing configuration
+     */
+    publishing {
+        /**
+         * repositories configuration
+         */
+        repositories {
+            /**
+             * always require maven local
+             */
+            mavenLocal()
+            /**
+             * maven central requires credentials--not an issue for most
+             * people, but mandatory for publishing
+             *
+             *
+             * possibly we could break this out
+             */
+            maven {
+                credentials {
+                    username "$mavenRepositoryUsername"
+                    password "$mavenRepositoryPassword"
+                }
+                url "$mavenRepositoryUrl"
+            }
+        }
+
+
+        publications {
+            pluginMaven(MavenPublication) {
+
+                /**
+                 * maven coordinates
+                 */
+                groupId = project.group
+                version = project.version
+                artifactId = project.name
+
+                pom {
+                    name = 'Sunshower Aire-UX Test'
+                    description = 'Sunshower UX Testing Libraries'
+                    url = 'https://github.com/aire-ux/aire-test'
+                    licenses {
+                        license {
+                            name = 'The Gnu Affero Public License, Version 3.0'
+                            url = 'http://www.opensource.org/licenses/AGPL-3.0'
+                        }
+                    }
+                    developers {
+                        developer {
+                            id = 'josiah'
+                            name = 'Josiah Haswell'
+                            email = 'josiah@sunshower.io'
+                        }
+                    }
+                    scm {
+                        connection = 'scm:git:git://github.com/aire-ux/aire-test.git'
+                        developerConnection = 'scm:git:ssh://github.com/aire-ux/aire-test.git'
+                        url = 'https://www.sunshower.io/'
+                    }
+                }
+            }
+
+        }
+
+    }
+
+    signing {
+        useGpgCmd()
+        sign publishing.publications.pluginMaven
+    }
+}
+
+subprojects {
+    apply plugin: 'pmd'
+    apply plugin: 'java-library'
+    apply plugin: 'java-test-fixtures'
+    apply plugin: 'io.freefair.lombok'
+//    apply plugin: 'com.github.spotbugs'
+    apply plugin: 'com.diffplug.spotless'
+    apply plugin: 'io.spring.dependency-management'
+
+    dependencyManagement {
+        imports {
+            mavenBom "io.sunshower.aire-test:bom-imported:$version"
+        }
+    }
+
+    dependencies {
+        [
+                'com.vaadin:flow-server',
+                'com.vaadin:vaadin-icons-flow',
+                'com.vaadin:flow-html-components',
+                'org.springframework:spring-aop',
+        ].each {
+            implementation it
+        }
+
+        [
+            'org.junit.jupiter:junit-jupiter-engine'
+        ].each {
+            testImplementation it
+        }
+
+    }
+
+    spotbugsTest {
+        enabled = false
+    }
+
+    spotbugsMain {
+        reports {
+            html {
+                enabled = false
+            }
+        }
+    }
+
+    test {
+        useJUnitPlatform()
+    }
+
+    spotless {
+        java {
+            googleJavaFormat('1.12.0')
+        }
+    }
+
+
+    pmd {
+        toolVersion = '6.34.0'
+        sourceSets = [sourceSets.main]
+        ruleSets = [
+                "${project.rootDir}/check/pmd/rules/errorprone.xml"
+        ]
+    }
+
+    /**
+     * maven publishing configuration
+     */
+    publishing {
+
+        task sourcesJar(type: Jar, dependsOn: classes) {
+            archiveClassifier = 'sources'
+            from sourceSets.main.allSource
+        }
+
+        task testJar(type: Jar) {
+            archiveClassifier = 'tests'
+            from sourceSets.test.output
+        }
+
+        task javadocJar(type: Jar) {
+            from javadoc
+            archiveClassifier = 'javadoc'
+        }
+
+        publications {
+            pluginMaven(MavenPublication) {
+
+                suppressAllPomMetadataWarnings()
+
+                /**
+                 * components source
+                 */
+                from components.java
+                /**
+                 * maven coordinates
+                 */
+                groupId = project.group
+                version = project.version
+                artifactId = project.name
+
+                /**
+                 * included artifacts
+                 */
+
+                artifact testJar
+                artifact sourcesJar
+                artifact javadocJar
+
+                versionMapping {
+                    usage('java-api') {
+                        fromResolutionOf('runtimeClasspath')
+                    }
+                    usage('java-runtime') {
+                        fromResolutionResult()
+                    }
+                }
+                pom {
+                    name = 'Sunshower Aire UX Test'
+                    description = 'Sunshower UX Testing Libraries'
+                    url = 'https://github.com/aire-ux/aire-test'
+                    licenses {
+                        license {
+                            name = 'The Gnu Affero Public License, Version 3.0'
+                            url = 'http://www.opensource.org/licenses/AGPL-3.0'
+                        }
+                    }
+                    developers {
+                        developer {
+                            id = 'josiah'
+                            name = 'Josiah Haswell'
+                            email = 'josiah@sunshower.io'
+                        }
+                    }
+                    scm {
+                        connection = 'scm:git:git://github.com/aire-ux/aire-test.git'
+                        developerConnection = 'scm:git:ssh://github.com/aire-ux/aire-test.git'
+                        url = 'https://www.sunshower.io/'
+                    }
+                }
+            }
+        }
+    }
+
+}
