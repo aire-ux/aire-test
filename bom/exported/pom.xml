@@ -17,6 +17,7 @@
     <url>http://www.sunshower.io</url>
     <properties>
         <aire-common.version>1.0.8.Final</aire-common.version>
+        <aire-test.version>1.0.0-SNAPSHOT</aire-test.version>
     </properties>
 
     <description>
@@ -25,7 +26,45 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>io.sunshower.aire-test</groupId>
+                <artifactId>aire-mock</artifactId>
+                <version>${aire-test.version}</version>
+            </dependency>
 
+
+            <dependency>
+                <groupId>io.sunshower.aire-test</groupId>
+                <artifactId>aire-mock-core</artifactId>
+                <version>${aire-test.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>io.sunshower.aire-test</groupId>
+                <artifactId>aire-mockito</artifactId>
+                <version>${aire-test.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>io.sunshower.aire-test</groupId>
+                <artifactId>aire-test-common</artifactId>
+                <version>${aire-test.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>io.sunshower.aire-test</groupId>
+                <artifactId>aire-test-spring</artifactId>
+                <version>${aire-test.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.sunshower.aire-test</groupId>
+                <artifactId>aire-test-vaadin</artifactId>
+                <version>${aire-test.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 </project>

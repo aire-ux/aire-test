@@ -90,7 +90,7 @@ jobs:
       - name: Increment Aire-Test Property version
         run: >-
           mvn versions:set-property -f bom
-          -Dproperty=arcus.version -DnewVersion=${{ steps.finalVersion.outputs.result }}
+          -Dproperty=aire-test.version -DnewVersion=${{ steps.finalVersion.outputs.result }}
           --settings bom/settings/settings.xml
           -DnewVersion=${{ steps.finalVersion.outputs.result }}
           -Dmaven-repo.github.username=${{secrets.MAVEN_REPOSITORY_USERNAME}}
@@ -186,8 +186,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: arcus-${{ env.final_version }}
-          release_name: Arcus-release-version-${{ env.final_version }}
+          tag_name: aire-${{ env.final_version }}
+          release_name: aire-test-release-version-${{ env.final_version }}
 
           body: |
             ** Changes in arcus-${{ env.final_version }} **
@@ -233,7 +233,7 @@ jobs:
           &&
           mvn versions:set-property -f bom
           --settings bom/settings/settings.xml
-          -Dproperty=arcus.version -DnewVersion=${{ steps.snapshotVersion.outputs.result }}
+          -Dproperty=aire-test.version -DnewVersion=${{ steps.snapshotVersion.outputs.result }}
           -Dmaven-repo.github.username=${{secrets.MAVEN_REPOSITORY_USERNAME}}
           -Dmaven-repo.github.password='${{secrets.MAVEN_REPOSITORY_PASSWORD}}'
           &&
