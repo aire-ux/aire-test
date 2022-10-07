@@ -34,7 +34,7 @@
   </licenses>
 
   <description>
-    Arcus Bill-Of-Materials parent POM
+    Aire Test Bill-Of-Materials parent POM
   </description>
 
   <developers>
@@ -65,11 +65,12 @@
 
   <scm>
     <tag>HEAD</tag>
-    <url>https://github.com/sunshower-io/${project.scm.tag}</url>
-    <connection>scm:git:https://${env.GITHUB_PSW}@github.com/sunshower-io/sunshower-arcus
+    <url>https://github.com/aire-ux/${project.scm.tag}</url>
+    <connection>scm:git:https://${env.GITHUB_PSW}@github.com/aire-ux/aire-test
     </connection>
 
-    <developerConnection>scm:git:https://${env.GITHUB_PSW}@github.com/sunshower-io/sunshower-arcus
+    <developerConnection>
+      scm:git:https://${env.GITHUB_PSW}@github.com/aire-ux/aire-test
     </developerConnection>
   </scm>
 
@@ -78,6 +79,12 @@
       <id>sunshower-github</id>
       <name>Sunshower-env Github</name>
       <url>https://maven.pkg.github.com/sunshower-io/*</url>
+    </repository>
+
+    <repository>
+      <id>aire-ux-github</id>
+      <name>Sunshower-env Github</name>
+      <url>https://maven.pkg.github.com/aire-ux/*</url>
     </repository>
     <repository>
       <id>repository.spring.milestone</id>
