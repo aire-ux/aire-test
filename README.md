@@ -202,8 +202,8 @@ public class AdjacentSpringTest {
 
 ```
 
-If your Vaadin components and routes have been discovered by Spring, there is no need to add the `@RouteLocation` 
-annotation
+If your Vaadin components and routes have been discovered by Spring, 
+there is no need to add the `@RouteLocation` annotation
 
 
 
