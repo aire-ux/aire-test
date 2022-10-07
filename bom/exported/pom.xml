@@ -6,18 +6,18 @@
         <groupId>io.sunshower.aire-test</groupId>
         <artifactId>bom</artifactId>
         <relativePath>../</relativePath>
-        <version>1.0.9.Final</version>
+        <version>1.0.10-SNAPSHOT</version>
     </parent>
     <groupId>io.sunshower.aire-test</groupId>
     <artifactId>bom-exported</artifactId>
-    <version>1.0.9.Final</version>
+    <version>1.0.10-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>Aire Exported Bill-Of-Materials</name>
     <url>http://www.sunshower.io</url>
     <properties>
         <aire-common.version>1.0.8.Final</aire-common.version>
-        <aire-test.version>1.0.9.Final</aire-test.version>
+        <aire-test.version>1.0.10-SNAPSHOT</aire-test.version>
     </properties>
 
     <description>

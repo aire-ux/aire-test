@@ -5,7 +5,7 @@
 
   <groupId>io.sunshower.aire-test</groupId>
   <artifactId>bom</artifactId>
-  <version>1.0.9.Final</version>
+  <version>1.0.10-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <parent>
@@ -19,7 +19,7 @@
   <properties>
     <environment.version>1.0.23.Final</environment.version>
     <arcus.version>1.41.50.Final</arcus.version>
-    <aire-test.version>1.0.9.Final</aire-test.version>
+    <aire-test.version>1.0.10-SNAPSHOT</aire-test.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven-javadoc-plugin.version>2.9.1</maven-javadoc-plugin.version>
     <maven-gpg-plugin.version>3.0.1</maven-gpg-plugin.version>
