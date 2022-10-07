@@ -110,7 +110,7 @@
       <dependency>
         <groupId>io.sunshower.arcus</groupId>
         <artifactId>bom-exported</artifactId>
-        <version>${arcus.version}</version>
+        <version>1.41.50.Final</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
