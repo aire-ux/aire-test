@@ -74,7 +74,7 @@ Or add the desired projects:
 
 For both the Spring and the Vaadin scenarios we have the follow use-case:
 
-```
+```java
 
 @Route("main")
 public class MainLayout extends Section {
