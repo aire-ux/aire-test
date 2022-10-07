@@ -9,9 +9,12 @@ plugins {
     id 'io.spring.dependency-management'
 }
 
-repositories {
-    mavenLocal()
-    mavenCentral()
+
+allprojects {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
 }
 
 subprojects {
@@ -30,7 +33,7 @@ subprojects {
 
     dependencyManagement {
         imports {
-            mavenBom "io.sunshower.aire-test:bom-imported:$aireCoreVersion"
+            mavenBom "io.sunshower.aire-test:bom-imported:$version"
         }
     }
 

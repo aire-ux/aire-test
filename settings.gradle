@@ -24,8 +24,10 @@ pluginManagement {
 }
 
 include(
-  'aire-test-common',
-  'aire-test-vaadin',
-  'aire-test-spring'
+        'aire-test-common',
+        'aire-test-vaadin',
+        'aire-test-spring',
+        'aire-mock:aire-mockito',
+        'aire-mock:aire-mock-core'
 )
 
