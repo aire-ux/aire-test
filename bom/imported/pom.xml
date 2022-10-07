@@ -7,11 +7,11 @@
     <groupId>io.sunshower.aire-test</groupId>
     <artifactId>bom</artifactId>
     <relativePath>../</relativePath>
-    <version>1.0.4.Final</version>
+    <version>1.0.5-SNAPSHOT</version>
   </parent>
   <groupId>io.sunshower.aire-test</groupId>
   <artifactId>bom-imported</artifactId>
-  <version>1.0.4.Final</version>
+  <version>1.0.5-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>Aire Imported Bill-Of-Materials</name>
@@ -23,7 +23,7 @@
 
   <properties>
     <spring.version>5.3.23</spring.version>
-    <arcus.version>1.0.4.Final</arcus.version>
+    <arcus.version>1.0.5-SNAPSHOT</arcus.version>
     <flow-server.version>23.2.3</flow-server.version>
     <junit.version>5.8.1</junit.version>
     <mockito-bom.version>4.8.0</mockito-bom.version>
