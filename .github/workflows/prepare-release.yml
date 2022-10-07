@@ -233,7 +233,7 @@ jobs:
           &&
           mvn versions:set-property -f bom
           --settings bom/settings/settings.xml
-          -Dproperty=aire-testt .version -DnewVersion=${{ steps.snapshotVersion.outputs.result }}
+          -Dproperty=aire-test.version -DnewVersion=${{ steps.snapshotVersion.outputs.result }}
           -Dmaven-repo.github.username=${{secrets.MAVEN_REPOSITORY_USERNAME}}
           -Dmaven-repo.github.password='${{secrets.MAVEN_REPOSITORY_PASSWORD}}'
           &&
