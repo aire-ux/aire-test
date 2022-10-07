@@ -93,11 +93,6 @@ allprojects {
         useGpgCmd()
         sign publishing.publications.pluginMaven
     }
-    dependencyManagement {
-        imports {
-            mavenBom "io.sunshower.aire-test:bom-imported:$version"
-        }
-    }
 }
 
 subprojects {
@@ -107,7 +102,13 @@ subprojects {
     apply plugin: 'io.freefair.lombok'
     apply plugin: 'com.github.spotbugs'
     apply plugin: 'com.diffplug.spotless'
+    apply plugin: 'io.spring.dependency-management'
 
+    dependencyManagement {
+        imports {
+            mavenBom "io.sunshower.aire-test:bom-imported:$version"
+        }
+    }
 
     dependencies {
         [
