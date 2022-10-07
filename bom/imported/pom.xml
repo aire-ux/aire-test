@@ -7,11 +7,11 @@
     <groupId>io.sunshower.aire-test</groupId>
     <artifactId>bom</artifactId>
     <relativePath>../</relativePath>
-    <version>1.0.5-SNAPSHOT</version>
+    <version>1.0.10-SNAPSHOT</version>
   </parent>
   <groupId>io.sunshower.aire-test</groupId>
   <artifactId>bom-imported</artifactId>
-  <version>1.0.5-SNAPSHOT</version>
+  <version>1.0.10-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>Aire Imported Bill-Of-Materials</name>
