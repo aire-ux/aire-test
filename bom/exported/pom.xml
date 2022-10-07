@@ -17,7 +17,7 @@
     <url>http://www.sunshower.io</url>
     <properties>
         <aire-common.version>1.0.8.Final</aire-common.version>
-        <aire-test.version>1.0.0-SNAPSHOT</aire-test.version>
+        <aire-test.version>1.0.5-SNAPSHOT</aire-test.version>
     </properties>
 
     <description>
