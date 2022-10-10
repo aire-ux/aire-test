@@ -166,7 +166,8 @@ public class VaadinTestCaseTest {
 
 ### Spring 
 Spring support works identically to the vanilla Vaadin support above, but Spring injection annotations
-can be used with parameters as well.  Spring support can be enabled by adding the `@EnableSpring` annotation
+can be used with parameters as well.  Spring support can be enabled by adding the `@EnableSpring` annotation.
+(CSS selector support is provided by [Sunshower-Arcus](https://github.com/sunshower-io/sunshower-arcus/tree/master/condensation/css-selectors)):
 
 ```java
 @AireTest
