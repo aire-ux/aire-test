@@ -1,13 +1,13 @@
 package com.aire.ux.test.spring.servlet;
 
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+import jakarta.servlet.Servlet;
+import jakarta.servlet.annotation.WebServlet;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
-import javax.servlet.Servlet;
-import javax.servlet.annotation.WebServlet;
 import lombok.val;
 import org.junit.jupiter.api.extension.AfterAllCallback;
 import org.junit.jupiter.api.extension.BeforeAllCallback;

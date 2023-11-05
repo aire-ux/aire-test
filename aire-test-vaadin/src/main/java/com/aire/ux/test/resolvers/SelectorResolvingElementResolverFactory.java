@@ -1,11 +1,7 @@
 package com.aire.ux.test.resolvers;
 
-import com.aire.ux.test.ElementResolver;
-import com.aire.ux.test.ElementResolverFactory;
-import com.aire.ux.test.Select;
-import com.aire.ux.test.Utilities;
+import com.aire.ux.test.*;
 import com.aire.ux.test.vaadin.Frames;
-import com.vaadin.flow.component.UI;
 import com.vaadin.flow.dom.Element;
 import io.sunshower.arcus.reflect.Reflect;
 import io.sunshower.arcus.selectors.css.CssSelectorParser;
@@ -88,7 +84,7 @@ public class SelectorResolvingElementResolverFactory implements ElementResolverF
           parser
               .parse(selector)
               .plan(DefaultPlanContext.getInstance())
-              .evaluate(UI.getCurrent().getElement(), Frames.getCurrentNodeAdapter());
+              .evaluate(Elements.getRootElement(), Frames.getCurrentNodeAdapter());
       if (isElement) {
         val collect = Reflect.instantiate(collection);
         collect.addAll((Collection) result.results());
@@ -122,7 +118,7 @@ public class SelectorResolvingElementResolverFactory implements ElementResolverF
           parser
               .parse(selector)
               .plan(DefaultPlanContext.getInstance())
-              .evaluate(UI.getCurrent().getElement(), Frames.getCurrentNodeAdapter());
+              .evaluate(Elements.getRootElement(), Frames.getCurrentNodeAdapter());
       if (result.size() > 0) {
         if (element) {
           return (T) result.results().iterator().next();

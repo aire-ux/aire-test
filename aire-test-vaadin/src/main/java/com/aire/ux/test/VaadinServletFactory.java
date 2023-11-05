@@ -8,6 +8,10 @@ import java.util.function.Supplier;
 
 public interface VaadinServletFactory {
 
+  default int getOrder() {
+    return 100;
+  }
+
   Supplier<UI> getUIFactory();
 
   Optional<VaadinServlet> createServlet(Routes routes);

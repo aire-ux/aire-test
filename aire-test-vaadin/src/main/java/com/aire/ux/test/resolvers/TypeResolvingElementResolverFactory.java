@@ -1,10 +1,6 @@
 package com.aire.ux.test.resolvers;
 
-import com.aire.ux.test.ElementResolver;
-import com.aire.ux.test.ElementResolverFactory;
-import com.aire.ux.test.Select;
-import com.aire.ux.test.Utilities;
-import com.vaadin.flow.component.UI;
+import com.aire.ux.test.*;
 import com.vaadin.flow.dom.Element;
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import io.sunshower.arcus.reflect.Reflect;
@@ -59,7 +55,7 @@ public class TypeResolvingElementResolverFactory implements ElementResolverFacto
     @SuppressWarnings("unchecked")
     public <T> T resolve() {
       val result = new ArrayDeque<Element>();
-      val init = UI.getCurrent().getElement();
+      val init = Elements.getRootElement();
       result.add(init);
       while (!result.isEmpty()) {
         val next = result.poll();
