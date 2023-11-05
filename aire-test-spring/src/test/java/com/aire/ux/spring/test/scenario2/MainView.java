@@ -2,7 +2,7 @@ package com.aire.ux.spring.test.scenario2;
 
 import com.vaadin.flow.component.html.Main;
 import com.vaadin.flow.router.Route;
-import javax.inject.Inject;
+import jakarta.inject.Inject;
 import lombok.Getter;
 
 @Route("main")

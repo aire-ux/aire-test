@@ -5,9 +5,9 @@ import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.Main;
 import com.vaadin.flow.router.Route;
+import jakarta.inject.Inject;
 import java.util.concurrent.atomic.AtomicInteger;
 import javax.annotation.Nonnull;
-import javax.inject.Inject;
 import lombok.Getter;
 
 @Route("main")

@@ -64,9 +64,14 @@ public final class TestFrame implements AutoCloseable {
   }
 
   static Optional<VaadinServletFactory> servletFactory() {
-    return ServiceLoader.load(
-            VaadinServletFactory.class, Thread.currentThread().getContextClassLoader())
-        .findFirst();
+    val results =
+        ServiceLoader.load(
+                VaadinServletFactory.class, Thread.currentThread().getContextClassLoader())
+            .stream()
+            .map(ServiceLoader.Provider::get)
+            .sorted((lhs, rhs) -> Integer.compare(rhs.getOrder(), lhs.getOrder()))
+            .toList();
+    return results.isEmpty() ? Optional.empty() : Optional.of(results.get(results.size() - 1));
   }
 
   public <T> void put(Class<T> type, T element) {

@@ -38,7 +38,7 @@ public class DefaultTestContext implements TestContext {
   }
 
   public DefaultTestContext() {
-    this(() -> UI.getCurrent().getElement());
+    this(() -> Elements.getRootElement());
   }
 
   @Override

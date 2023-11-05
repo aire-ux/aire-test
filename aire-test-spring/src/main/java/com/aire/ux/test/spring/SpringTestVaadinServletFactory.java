@@ -23,6 +23,10 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 public class SpringTestVaadinServletFactory implements VaadinServletFactory {
 
+  public int getOrder() {
+    return 50;
+  }
+
   @Override
   public Supplier<UI> getUIFactory() {
     return () -> {

@@ -11,7 +11,7 @@ dependencies {
     api 'com.vaadin:flow-server'
     api 'io.sunshower.arcus:arcus-lang'
     api 'io.sunshower.arcus:arcus-reflect'
-    api 'javax.servlet:javax.servlet-api'
+    api 'jakarta.servlet:jakarta.servlet-api'
 
     /**
      *
@@ -21,6 +21,6 @@ dependencies {
     api 'org.mockito:mockito-junit-jupiter'
     api 'org.springframework:spring-context'
     api 'org.springframework.boot:spring-boot'
-    api'javax.inject:javax.inject'
+    api 'jakarta.inject:jakarta.inject-api'
     implementation 'com.github.mvysny.kaributesting:karibu-testing-v10-spring'
 }

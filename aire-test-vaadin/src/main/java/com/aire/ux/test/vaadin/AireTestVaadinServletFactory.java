@@ -20,6 +20,11 @@ import org.jetbrains.annotations.NotNull;
 public class AireTestVaadinServletFactory implements VaadinServletFactory {
 
   @Override
+  public int getOrder() {
+    return 200;
+  }
+
+  @Override
   public Supplier<UI> getUIFactory() {
     return MockedUI::new;
   }
