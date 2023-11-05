@@ -176,8 +176,8 @@ jobs:
 
       - name: Commit Version Changes
         run: |
-          git config --local user.email "build@sunshower.io"
-          git config --local user.name "build"
+          git config --local user.email "josiah@sunshower.io"
+          git config --local user.name "josiahhaswell"
           git commit -am "Final Release [tag: final, version: ${{steps.finalVersion.outputs.result}}]"
 
       - name: Perform Release
@@ -278,8 +278,8 @@ jobs:
 
       - name: Commit Version Changes and Release
         run: |
-          git config --local user.email "build@sunshower.io"
-          git config --local user.name "build"
+          git config --local user.email "josiah@sunshower.io"
+          git config --local user.name "josiahhaswell"
           git remote set-url origin https://x-access-token:${{ secrets.PUSH_ENABLED_GITHUB_TOKEN }}@github.com/${{ github.repository }}
           git commit -am "Releasing new Snapshot [tag: snapshot]"
 
